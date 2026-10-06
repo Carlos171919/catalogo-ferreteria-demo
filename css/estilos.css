@@ -256,13 +256,17 @@ button { cursor: pointer; }
 
 /* Cintas de productos que corren en sentidos contrarios. */
 .cintas { padding: 120px 0 40px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
-.cinta { display: flex; gap: 12px; width: max-content; }
-.js .cinta.der { animation: cintaDer 70s linear infinite; }
-.js .cinta.izq { animation: cintaIzq 70s linear infinite; }
-.cintas:hover .cinta, .cintas:focus-within .cinta { animation-play-state: paused; }
-@keyframes cintaDer { from { transform: translateX(-33.3333%); } to { transform: translateX(0); } }
-@keyframes cintaIzq { from { transform: translateX(0); } to { transform: translateX(-33.3333%); } }
-.mtile { position: relative; flex: none; width: 420px; height: 270px; padding: 0; border: 1px solid var(--ln2); border-radius: var(--r-foto); overflow: hidden; background: radial-gradient(70% 80% at 50% 34%, var(--w1) 0, var(--w2) 72%); color: var(--ink); text-align: left; }
+/* Cada tarjeta se mueve por su cuenta, todas al mismo ritmo, en dos copias seguidas: cuando
+   una tarjeta sale por un lado, su copia ya viene entrando. Así no hay una tira gigante animada
+   (el iPhone no dibuja tiras tan largas y deja un espacio negro). */
+.cinta { --paso: 432px; --dur: 70s; position: relative; height: 270px; }
+.cinta .mtile { position: absolute; left: 0; top: 0; transform: translateX(calc(var(--i) * var(--paso))); }
+.js .cinta.izq .mtile { animation: tileIzq var(--dur) linear infinite; }
+.js .cinta.der .mtile { animation: tileDer var(--dur) linear infinite; }
+@media (hover: hover) { .cintas:hover .mtile, .cintas:focus-within .mtile { animation-play-state: paused; } }
+@keyframes tileIzq { from { transform: translateX(calc(var(--i) * var(--paso))); } to { transform: translateX(calc((var(--i) - var(--n)) * var(--paso))); } }
+@keyframes tileDer { from { transform: translateX(calc((var(--i) - var(--n)) * var(--paso))); } to { transform: translateX(calc(var(--i) * var(--paso))); } }
+.mtile { flex: none; width: 420px; height: 270px; padding: 0; border: 1px solid var(--ln2); border-radius: var(--r-foto); overflow: hidden; background: radial-gradient(70% 80% at 50% 34%, var(--w1) 0, var(--w2) 72%); color: var(--ink); text-align: left; }
 .mtile img { position: absolute; left: 22%; top: 8%; width: 56%; height: 64%; object-fit: contain; filter: drop-shadow(0 24px 28px var(--sombra)); transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
 .mtile:hover img { transform: scale(1.07) rotate(-4deg); }
 .mpie { position: absolute; left: 18px; right: 18px; bottom: 14px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
@@ -512,7 +516,7 @@ button { cursor: pointer; }
   .heroe-pie p { max-width: 170px; font-size: 12px; }
   .heroe-pie .luz { min-height: 48px; padding: 0 22px; font-size: 12px; }
   .cintas { padding: 96px 0 24px; gap: 10px; }
-  .cinta { gap: 10px; }
+  .cinta { --paso: 260px; height: 168px; }
   .mtile { width: 250px; height: 168px; border-radius: min(var(--r-foto), 14px); }
   .mpie { left: 12px; right: 12px; bottom: 10px; }
   .mpie .c1 { font-size: 12px; }
@@ -616,14 +620,3 @@ button { cursor: pointer; }
 }
 .captura .disenos-barra { display: none !important; }
 .captura .flota-pedido, .captura .toast { display: none !important; }
-/* Filas de productos en celulares y tabletas: se deslizan con el dedo, sin moverse solas.
-   En iPhone, una tira animada tan larga (los productos repetidos tres veces) no se dibuja
-   y queda un espacio negro; por eso aquí va una sola copia dentro de un carril desplazable. */
-@media (hover: none), (max-width: 760px) {
-  .cintas { padding-left: 0; padding-right: 0; }
-  .cinta, .js .cinta.der, .js .cinta.izq { width: auto; max-width: 100%; animation: none; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 16px; padding: 0 16px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .cinta::-webkit-scrollbar { display: none; }
-  .cinta .mtile[aria-hidden="true"] { display: none; }
-  .cinta .mtile { scroll-snap-align: start; }
-  .cinta::after { content: ''; flex: none; width: 4px; }
-}

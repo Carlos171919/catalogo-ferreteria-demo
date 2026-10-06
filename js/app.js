@@ -553,8 +553,8 @@
     return lista.length ? lista : respaldoLista;
   }
 
-  function tileHTML(p, copia) {
-    return '<button class="mtile" type="button" data-abrir-ref="' + esc(p.ref) + '"'
+  function tileHTML(p, copia, i) {
+    return '<button class="mtile" type="button" style="--i:' + i + '" data-abrir-ref="' + esc(p.ref) + '"'
       + (copia ? ' aria-hidden="true" tabindex="-1"' : ' aria-label="Ver ' + esc(p.nombre) + ', ' + esc(precioTxt(p)) + '"') + '>'
       + '<img src="' + esc(fotoDe(p)) + '" alt="" loading="lazy" decoding="async">'
       + '<span class="mpie"><span class="c1">' + esc(p.nombre) + '</span><b>' + esc(precioTxt(p)) + '</b></span></button>';
@@ -580,11 +580,12 @@
       $('#heroeBtn').setAttribute('aria-label', 'Ver ' + heroe.nombre + ', ' + precioTxt(heroe));
     }
 
-    // Cintas: la lista se reparte en dos filas y se repite tres veces para que corran sin corte.
+    // Cintas: la lista se reparte en dos filas; cada fila lleva dos copias para que corra sin corte.
     const cintas = porRefs(P.cintas, base);
     const mitad = Math.ceil(cintas.length / 2);
     [[$('#cintaA'), cintas.slice(0, mitad)], [$('#cintaB'), cintas.slice(mitad).length ? cintas.slice(mitad) : cintas]].forEach(([el, l]) => {
-      el.innerHTML = l.map((p) => tileHTML(p, false)).join('') + l.map((p) => tileHTML(p, true)).join('') + l.map((p) => tileHTML(p, true)).join('');
+      el.style.setProperty('--n', l.length);
+      el.innerHTML = l.map((p, i) => tileHTML(p, false, i)).join('') + l.map((p, i) => tileHTML(p, true, i + l.length)).join('');
     });
 
     // Franja fija con los nombres de las categorías (o los de config.js). Cada nombre lleva al
