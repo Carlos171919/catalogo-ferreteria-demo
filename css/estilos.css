@@ -616,3 +616,14 @@ button { cursor: pointer; }
 }
 .captura .disenos-barra { display: none !important; }
 .captura .flota-pedido, .captura .toast { display: none !important; }
+/* Filas de productos en celulares y tabletas: se deslizan con el dedo, sin moverse solas.
+   En iPhone, una tira animada tan larga (los productos repetidos tres veces) no se dibuja
+   y queda un espacio negro; por eso aquí va una sola copia dentro de un carril desplazable. */
+@media (hover: none), (max-width: 760px) {
+  .cintas { padding-left: 0; padding-right: 0; }
+  .cinta, .js .cinta.der, .js .cinta.izq { width: auto; max-width: 100%; animation: none; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 16px; padding: 0 16px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .cinta::-webkit-scrollbar { display: none; }
+  .cinta .mtile[aria-hidden="true"] { display: none; }
+  .cinta .mtile { scroll-snap-align: start; }
+  .cinta::after { content: ''; flex: none; width: 4px; }
+}
