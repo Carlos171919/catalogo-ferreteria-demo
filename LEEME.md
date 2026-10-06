@@ -137,6 +137,10 @@ Se guarda en el navegador de cada cliente, así que lo que agrega en la portada 
 
 ## Publicarlo
 
+**Demo para el cliente (ya publicada):** https://carlos171919.github.io/catalogo-ferreteria-demo/disenos.html. Vive en el repositorio público Carlos171919/catalogo-ferreteria-demo (GitHub Pages), que se arma desde la carpeta `publicar-demo/` (copia de `sitio/`). Para subir cambios: `.\herramientas\actualizar-demo.ps1` desde PowerShell en la carpeta `catalogo-ferreteria`.
+
+**Sitio final (cuando el cliente elija):**
+
 1. Entra a https://app.netlify.com/drop y arrastra la carpeta `sitio`. Netlify da una dirección al instante. Si se le conecta un dominio propio, mejor.
 2. Con la dirección final, cambia `https://TU-DOMINIO/img/og-imagen.jpg` en los dos HTML y crea esa imagen de 1200 x 630 px. Es la vista previa que sale al pegar el enlace en WhatsApp.
 
