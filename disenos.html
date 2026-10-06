@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diseños del catálogo · Ferretería [Nombre]</title>
+<meta name="description" content="Nueve propuestas de diseño para el catálogo web de la ferretería. Toca una para verla funcionando.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Elige el diseño de tu catálogo">
+<meta property="og:description" content="Nueve propuestas para el catálogo web de Ferretería [Nombre]. Toca una para verla funcionando.">
+<meta property="og:locale" content="es_CO">
+<meta name="theme-color" content="#0E0E0F">
+<link rel="icon" href="img/marca.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..700&amp;display=swap">
+<style>
+  /* Página para enseñar los diseños: neutra, para que cada diseño se vea con sus colores. */
+  :root { --bg: #0E0E0F; --sf: #161618; --ink: #F2EDE3; --mut: #9A958E; --ln: rgba(242, 237, 227, .1); --ac: #FF7A2A; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--bg); -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: radial-gradient(60% 40% at 15% 0%, rgba(232, 112, 24, .18), transparent 70%), var(--bg); color: var(--ink); font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--ac); outline-offset: 3px; }
+  .envoltura { max-width: 1280px; margin: 0 auto; padding: 56px 32px 72px; }
+  .eti { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; }
+  .eti::before, .eti::after { content: '+'; font-weight: 300; font-size: 20px; line-height: 1; }
+  .eti b { padding: 6px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 500; }
+  h1 { margin: 22px 0 0; max-width: 14ch; font-size: clamp(42px, 7vw, 96px); font-weight: 600; letter-spacing: -.04em; line-height: .98; }
+  .intro { margin: 22px 0 0; max-width: 60ch; font-size: clamp(16px, 1.6vw, 19px); font-weight: 300; color: #CFC8BE; }
+  .nota { margin: 10px 0 0; font-size: 14px; color: var(--mut); }
+  .grilla { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: 20px; }
+  .g-card { display: flex; flex-direction: column; border: 1px solid var(--ln); border-radius: 26px; background: var(--sf); overflow: hidden; text-decoration: none; transition: transform .35s cubic-bezier(.2, .8, .2, 1), border-color .3s; }
+  .g-card:hover { transform: translateY(-6px); border-color: rgba(242, 237, 227, .35); }
+  .g-img { display: block; aspect-ratio: 585 / 1000; overflow: hidden; background: #000; }
+  .g-img img { display: block; width: 100%; height: auto; transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
+  .g-card:hover .g-img img { transform: scale(1.03); }
+  .g-info { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 20px; }
+  .g-fila { display: flex; align-items: center; justify-content: space-between; }
+  .g-num { font-size: 13px; letter-spacing: .14em; color: var(--mut); }
+  .g-fila i { width: 26px; height: 26px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25); }
+  .g-nom { font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+  .g-desc { font-size: 14.5px; font-weight: 300; color: #CFC8BE; }
+  .g-ver { margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--ink); }
+  .pie { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--ln); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px; color: var(--mut); }
+  @media (max-width: 640px) {
+    .envoltura { padding: 36px 16px 56px; }
+    .grilla { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 32px; }
+    .g-card { border-radius: 20px; }
+    .g-info { padding: 12px 12px 14px; gap: 4px; }
+    .g-nom { font-size: 16px; }
+    .g-desc { font-size: 12.5px; }
+    .g-ver { font-size: 13px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+  <main class="envoltura">
+    <span class="eti"><b>Propuesta de diseño</b></span>
+    <h1>Elige el diseño de tu catálogo</h1>
+    <p class="intro">Nueve opciones para el catálogo web de Ferretería [Nombre]. Toca una para verla funcionando: puedes buscar productos, filtrar por categoría y precio, y armar un pedido de prueba. Dentro de la página, la barra de abajo pasa de un diseño a otro.</p>
+    <p class="nota">Los productos y las imágenes son de ejemplo. Al publicarlo van los de la ferretería.</p>
+    <div class="grilla">
+      <a class="g-card" href="index.html?paleta=naranja">
+        <span class="g-img"><img src="img/disenos/naranja.jpg" alt="Diseño Naranja y negro en un celular" width="585" height="1170" loading="eager"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">01</span><i style="background:linear-gradient(135deg,#0B0B0B 50%,#FF6A13 50%)"></i></span>
+          <span class="g-nom">Naranja y negro</span>
+          <span class="g-desc">Fondo negro con naranja: fuerte y con energía.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+      <a class="g-card" href="index.html?paleta=amarillo">
+        <span class="g-img"><img src="img/disenos/amarillo.jpg" alt="Diseño Amarillo obra en un celular" width="585" height="1170" loading="eager"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">02</span><i style="background:linear-gradient(135deg,#0A0A0A 50%,#FFC400 50%)"></i></span>
+          <span class="g-nom">Amarillo obra</span>
+          <span class="g-desc">El color de la obra: se reconoce de una vez como ferretería.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+      <a class="g-card" href="index.html?paleta=azul">
+        <span class="g-img"><img src="img/disenos/azul.jpg" alt="Diseño Azul eléctrico en un celular" width="585" height="1170" loading="eager"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">03</span><i style="background:linear-gradient(135deg,#07090F 50%,#3466FF 50%)"></i></span>
+          <span class="g-nom">Azul eléctrico</span>
+          <span class="g-desc">Moderno y tecnológico, transmite confianza.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+      <a class="g-card" href="index.html?paleta=claro">
+        <span class="g-img"><img src="img/disenos/claro.jpg" alt="Diseño Claro con naranja en un celular" width="585" height="1170" loading="eager"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">04</span><i style="background:linear-gradient(135deg,#F1EFEA 50%,#E8590C 50%)"></i></span>
+          <span class="g-nom">Claro con naranja</span>
+          <span class="g-desc">Fondo claro con detalles en naranja: se lee muy bien a pleno sol.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+      <a class="g-card" href="index.html?paleta=rojo">
+        <span class="g-img"><img src="img/disenos/rojo.jpg" alt="Diseño Rojo industrial en un celular" width="585" height="1170" loading="lazy"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">05</span><i style="background:linear-gradient(135deg,#0C0C0C 50%,#E3141B 50%)"></i></span>
+          <span class="g-nom">Rojo industrial</span>
+          <span class="g-desc">Letra condensada en mayúscula y formas rectas: estilo industrial.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+      <a class="g-card" href="index.html?paleta=plano">
+        <span class="g-img"><img src="img/disenos/plano.jpg" alt="Diseño Plano técnico en un celular" width="585" height="1170" loading="lazy"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">06</span><i style="background:linear-gradient(135deg,#0F1419 50%,#C6F432 50%)"></i></span>
+          <span class="g-nom">Plano técnico</span>
+          <span class="g-desc">Grafito con verde lima y cuadrícula de plano: técnico y preciso.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+      <a class="g-card" href="index.html?paleta=bosque">
+        <span class="g-img"><img src="img/disenos/bosque.jpg" alt="Diseño Verde bosque en un celular" width="585" height="1170" loading="lazy"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">07</span><i style="background:linear-gradient(135deg,#0C1611 50%,#2FBF71 50%)"></i></span>
+          <span class="g-nom">Verde bosque</span>
+          <span class="g-desc">Verde con formas redondeadas: cercano y natural.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+      <a class="g-card" href="index.html?paleta=marino">
+        <span class="g-img"><img src="img/disenos/marino.jpg" alt="Diseño Marino y amarillo en un celular" width="585" height="1170" loading="lazy"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">08</span><i style="background:linear-gradient(135deg,#F3F5F9 50%,#FFB703 50%)"></i></span>
+          <span class="g-nom">Marino y amarillo</span>
+          <span class="g-desc">Claro, con azul marino y amarillo: ordenado y profesional.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+      <a class="g-card" href="index.html?paleta=cobre">
+        <span class="g-img"><img src="img/disenos/cobre.jpg" alt="Diseño Cobre premium en un celular" width="585" height="1170" loading="lazy"></span>
+        <span class="g-info">
+          <span class="g-fila"><span class="g-num">09</span><i style="background:linear-gradient(135deg,#0E0C0B 50%,#C9773C 50%)"></i></span>
+          <span class="g-nom">Cobre premium</span>
+          <span class="g-desc">Negro y cobre con letra fina en mayúscula: elegante.</span>
+          <span class="g-ver">Ver este diseño <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+    </div>
+    <p class="pie"><span>Cuando elijas, solo dime el número del diseño.</span><span>Catálogo web · Ferretería [Nombre]</span></p>
+  </main>
+</body>
+</html>
