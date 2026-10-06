@@ -587,10 +587,12 @@
       el.innerHTML = l.map((p) => tileHTML(p, false)).join('') + l.map((p) => tileHTML(p, true)).join('') + l.map((p) => tileHTML(p, true)).join('');
     });
 
-    // Franjas cruzadas: los nombres de las categorías (o los de config.js), repetidos para correr sin corte.
+    // Franja fija con los nombres de las categorías (o los de config.js). Cada nombre lleva al
+    // catálogo: filtrado si es una categoría, o buscando la palabra si no.
     const palabrasFranja = (Array.isArray(P.franjas) && P.franjas.length ? P.franjas : E.cats.map((c) => c.nombre));
-    const tira = palabrasFranja.map((w) => '<b>' + esc(w) + '</b><i>+</i>').join('');
-    $$('[data-franja]').forEach((el) => { el.innerHTML = tira + tira + tira; });
+    const enlace = (w) => E.cats.some((c) => c.nombre === w) ? linkCat(w) : 'catalogo.html?q=' + encodeURIComponent(w);
+    const tira = palabrasFranja.map((w) => '<a href="' + esc(enlace(w)) + '"><i aria-hidden="true">+</i>' + esc(w) + '</a>').join('');
+    $$('[data-franja]').forEach((el) => { el.innerHTML = tira; });
 
     // Nosotros: si config.js trae otro texto, se cambia y se vuelve a partir en líneas.
     const txt = $('#nosotrosTxt');

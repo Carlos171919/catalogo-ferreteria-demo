@@ -232,12 +232,12 @@ button { cursor: pointer; }
 .blanca .pildora b { background: var(--b-ink); color: var(--b-bg); box-shadow: none; }
 
 /* ---------- Franja con las categorías ---------- */
-.franjas { position: relative; margin-top: 56px; padding: 22px 0; overflow: hidden; border-block: 1px solid var(--ln); }
-.franja-in { display: flex; align-items: center; gap: 34px; width: max-content; padding-left: 34px; font-family: var(--f-tit); font-size: clamp(22px, 2.6vw, 38px); font-weight: 500; letter-spacing: -.02em; white-space: nowrap; color: var(--tit); }
-.franja-in b { font-weight: inherit; }
+.franjas { position: relative; margin-top: 56px; padding: 22px 20px; border-block: 1px solid var(--ln); }
+/* Fija: las categorías centradas y, si no caben, pasan a la siguiente línea. Cada una lleva al catálogo filtrado. */
+.franja-in { max-width: 1180px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; font-family: var(--f-tit); font-size: clamp(15px, 1.5vw, 20px); font-weight: 500; letter-spacing: -.01em; line-height: 1.2; color: var(--tit); }
+.franja-in a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border: 1px solid var(--ln); border-radius: var(--r-boton); text-decoration: none; transition: color .2s, border-color .2s, background .2s; }
+.franja-in a:hover { color: var(--ac); border-color: var(--ac); background: var(--acSoft); }
 .franja-in i { font-style: normal; font-weight: 300; color: var(--ac); }
-.js .franja-in { animation: cintaIzq 50s linear infinite; }
-.franjas:hover .franja-in { animation-play-state: paused; }
 
 /* ================= PORTADA ================= */
 .heroe { position: relative; height: 100svh; min-height: 640px; max-height: 980px; display: flex; flex-direction: column; overflow: clip; background: radial-gradient(40% 42% at 50% 78%, var(--halo), transparent 72%); }
@@ -491,8 +491,9 @@ button { cursor: pointer; }
 @media (max-width: 760px) {
   .nav-j { padding: 24px 20px 0; font-size: 11px; }
   .nav-j a { letter-spacing: .1em; }
-  .franjas { margin-top: 36px; padding: 16px 0; }
-  .franja-in { gap: 20px; padding-left: 20px; }
+  .franjas { margin-top: 36px; padding: 18px 16px; }
+  .franja-in { gap: 8px; font-size: 14.5px; }
+  .franja-in a { padding: 0 14px; }
   .notas { padding: 4px 20px 0; gap: 18px; }
   .notas span { font-size: 11px; }
   .pildora b { font-size: 12.5px; padding: 6px 14px; }
